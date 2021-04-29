@@ -111,7 +111,7 @@ vector<Software> InstalledPrograms::GetInstalledProgramsImp()
 		[](Software s1, Software s2){
 		std::transform(s1.DisplayName.begin(), s1.DisplayName.end(), s1.DisplayName.begin(), ::tolower);
 		std::transform(s2.DisplayName.begin(), s2.DisplayName.end(), s2.DisplayName.begin(), ::tolower);
-		return s1.DisplayName.compare(s2.DisplayName)<0;
+		return s1.DisplayName < s2.DisplayName;
 		} );
 	return std::move(SoftwareList);
 
