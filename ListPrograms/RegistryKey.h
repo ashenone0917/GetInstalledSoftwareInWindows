@@ -12,6 +12,7 @@ enum Arch
 	X86 = 1,
 	X64 = 2
 };
+
 class RegistryKey;
 using u_RegistryKey = std::unique_ptr<RegistryKey>;
 using pRegistryKey = std::shared_ptr<RegistryKey>;

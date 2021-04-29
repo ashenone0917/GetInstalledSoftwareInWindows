@@ -1,6 +1,8 @@
 #include "InstalledPrograms.h"
 #include <algorithm>
 #include <regex>
+#include <Windows.h>
+#include "RegistryKey.h"
 
 wstring GetInstallerKeyNameFromGuid(wstring GuidName);
 void AddToList(vector<Software>& TheList, 

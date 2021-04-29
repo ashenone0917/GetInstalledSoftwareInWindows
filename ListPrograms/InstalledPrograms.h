@@ -1,9 +1,11 @@
 #ifndef INSTALLED_PROGRAMS
 #define INSTALLED_PROGRAMS
 #include <vector>
-#include <Windows.h>
-#include "RegistryKey.h"
+#include <string>
+#include <memory>
 using namespace std;
+
+enum Arch;
 
 class Software
 {
@@ -24,7 +26,7 @@ public:
 		Arch);
 };
 
-
+class RegistryKey;
 class InstalledPrograms
 {
 public:
@@ -34,11 +36,11 @@ public:
 private:
 	static vector<Software> GetInstalledProgramsImp();
 	static void GetUninstallKeyPrograms(
-		pRegistryKey& UninstallKey, 
-		pRegistryKey& ClassesKey, 
+		std::shared_ptr<RegistryKey>& UninstallKey,
+		std::shared_ptr<RegistryKey>& ClassesKey,
 		vector<Software>&);
 	static void GetUserInstallerKeyPrograms(
-		pRegistryKey& uInstallerKey, 
+		std::shared_ptr<RegistryKey>& uInstallerKey,
 		vector<Software>& ExistingProgramList);
 };
 
